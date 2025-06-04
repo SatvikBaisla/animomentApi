@@ -142,3 +142,4 @@
 /Users/satvikbaisla/Desktop/Web Dev/ani_moment/animomentapi/obj/Debug/net8.0/animomentapi.pdb
 /Users/satvikbaisla/Desktop/Web Dev/ani_moment/animomentapi/obj/Debug/net8.0/animomentapi.genruntimeconfig.cache
 /Users/satvikbaisla/Desktop/Web Dev/ani_moment/animomentapi/obj/Debug/net8.0/ref/animomentapi.dll
+/Users/satvikbaisla/Desktop/Web Dev/ani_moment/animomentapi/obj/Debug/net8.0/animomentapi.sourcelink.json

@@ -1,0 +1,6 @@
+@animomentapi_HostAddress = http://localhost:5222
+
+GET {{animomentapi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

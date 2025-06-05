@@ -79,14 +79,21 @@ if (app.Environment.IsDevelopment())
 // .AllowAnyHeader()
 // );
 
-//for live
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowMyFrontend",
-        policy => policy.WithOrigins("https://wetechguys.com")
-                        .AllowAnyHeader()
-                        .AllowAnyMethod());
-});
+// for live
+app.UseCors(Options =>
+Options.WithOrigins("https://wetechguys.com")
+.AllowAnyMethod()
+.AllowAnyHeader()
+);
+
+
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy("AllowMyFrontend",
+//         policy => policy.WithOrigins("https://wetechguys.com")
+//                         .AllowAnyHeader()
+//                         .AllowAnyMethod());
+// });
 
 app.UseCors("AllowMyFrontend");
 

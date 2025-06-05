@@ -72,11 +72,23 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(Options =>
-Options.WithOrigins("http://localhost:4200")
-.AllowAnyMethod()
-.AllowAnyHeader()
-);
+// for local
+// app.UseCors(Options =>
+// Options.WithOrigins("http://localhost:4200")
+// .AllowAnyMethod()
+// .AllowAnyHeader()
+// );
+
+//for live
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowMyFrontend",
+        policy => policy.WithOrigins("https://wetechguys.com")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+});
+
+app.UseCors("AllowMyFrontend");
 
 app.UseHttpsRedirection();
 

@@ -56,6 +56,18 @@ builder.Services.AddDbContext<ApplicationDBContext>(options => {
 //     };
 // });
 
+// ✅ Add CORS Policy to allow multiple origins (local + live)
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy("AllowFrontend", policy =>
+//         policy.WithOrigins(
+//             "http://localhost:4200",
+//             "https://wetechguys.com"
+//         )
+//         .AllowAnyHeader()
+//         .AllowAnyMethod());
+// });
+
 //builder.Services.AddScoped<IProductRepository, ProductRepository>();
 //builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IProductCategoriesRepository, ProductCategoriesRepository>();
@@ -73,18 +85,18 @@ if (app.Environment.IsDevelopment())
 }
 
 // for local
-// app.UseCors(Options =>
-// Options.WithOrigins("http://localhost:4200")
-// .AllowAnyMethod()
-// .AllowAnyHeader()
-// );
-
-// for live
 app.UseCors(Options =>
-Options.WithOrigins("https://wetechguys.com")
+Options.WithOrigins("http://localhost:4200")
 .AllowAnyMethod()
 .AllowAnyHeader()
 );
+
+// for live
+// app.UseCors(Options =>
+// Options.WithOrigins("https://wetechguys.com")
+// .AllowAnyMethod()
+// .AllowAnyHeader()
+// );
 
 
 // builder.Services.AddCors(options =>
@@ -95,7 +107,7 @@ Options.WithOrigins("https://wetechguys.com")
 //                         .AllowAnyMethod());
 // });
 
-app.UseCors("AllowMyFrontend");
+//app.UseCors("AllowFrontend");
 
 app.UseHttpsRedirection();
 

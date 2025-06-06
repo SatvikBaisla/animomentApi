@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using animomentapi.Data;
 using animomentapi.Interface;
 using animomentapi.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace animomentapi.Repository
@@ -27,6 +28,24 @@ namespace animomentapi.Repository
 
             await _context.Products.AddAsync(result);
             await _context.SaveChangesAsync();
+
+            return result;
+        }
+
+        public async Task<List<Product>?> GetProductByCategoryIdAsync(int id)
+        {
+            var result = await _context.Products.Where(p => p.CategoryId == id).ToListAsync();
+
+            if (result == null) return null;
+
+            return result;
+        }
+
+        public async Task<Product?> GetProductByIdAsync(int id)
+        {
+            var result = await _context.Products.FirstOrDefaultAsync(p => p.ProductId == id);
+
+            if (result == null) return null;
 
             return result;
         }

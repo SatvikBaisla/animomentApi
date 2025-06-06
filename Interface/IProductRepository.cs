@@ -10,5 +10,7 @@ namespace animomentapi.Interface
     {
         Task<List<Product>?> GetAllProductAsync();
         Task<Product?> AddProductAsync(Product model);
+        Task<List<Product>?> GetProductByCategoryIdAsync(int id);
+        Task<Product?> GetProductByIdAsync(int id);
     }
 }

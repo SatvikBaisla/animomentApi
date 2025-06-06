@@ -22,5 +22,15 @@ namespace animomentapi.Mapper
                 PhoneNumber = model.PhoneNumber
             };
         }
+
+        public static User ToUserFromAddUserDto(this AddUserDto dto)
+        {
+            return new User
+            {
+                UserName = dto.UserName,
+                PhoneNumber = dto.PhoneNumber,
+                PasswordHash = dto.PasswordHash
+            };
+        }
     }
 }

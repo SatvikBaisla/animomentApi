@@ -39,5 +39,25 @@ namespace animomentapi.controllers
 
             return Ok(result);
         }
+
+        [HttpGet("get_product_by_category/{id}")]
+        public async Task<IActionResult> GetProductByCategoryId([FromRoute] int id)
+        {
+            var result = await _productRepo.GetProductByCategoryIdAsync(id);
+
+            if (result == null) return NotFound();
+
+            return Ok(result.Select(r => r.ToProductDto()));
+        }
+
+        [HttpGet("get_product_by_id/{id}")]
+        public async Task<IActionResult> GetProductById([FromRoute] int id)
+        {
+            var result = await _productRepo.GetProductByIdAsync(id);
+
+            if (result == null) return NotFound();
+
+            return Ok(result.ToProductDto());
+        }
     }
 }

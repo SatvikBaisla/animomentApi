@@ -10,5 +10,6 @@ namespace animomentapi.Interface
     public interface IUserRepository
     {
         Task<User?> UserLoginAsync(UserLoginDto dto);
+        Task<User?> AddNewUserAsync(AddUserDto dto);
     }
 }

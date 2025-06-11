@@ -28,5 +28,7 @@ namespace animomentapi.Models
         public DateTime updated_date { get; set; } = DateTime.Now;
         [ForeignKey("CategoryId")]
         public ProductCategory? ProductCategory { get; set; } // Navigation property connects -> category id 
+        // public List<Address>? Addresses { get; set; }
+        // public Wishlist? Wishlist { get; set; }
     }
 }

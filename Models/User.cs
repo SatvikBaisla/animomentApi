@@ -20,7 +20,7 @@ namespace animomentapi.Models
         public string PasswordHash { get; set; } = string.Empty;
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public DateTime UpdatedDate { get; set; } = DateTime.Now;
-        public Address? Address { get; set; }// this will allow me to use address prop from inside user table
+        //public Address? Address { get; set; }// this will allow me to use address prop from inside user table
         public Cart? Cart { get; set; }// this will allow me to use cart prop from inside user table
     }
 }

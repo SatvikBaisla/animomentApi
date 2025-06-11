@@ -11,5 +11,6 @@ namespace animomentapi.Interface
     {
         Task<User?> UserLoginAsync(UserLoginDto dto);
         Task<User?> AddNewUserAsync(AddUserDto dto);
+        Task<User?> EditUserAsync(int id, EditUserDto dto);
     }
 }

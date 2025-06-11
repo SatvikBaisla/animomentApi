@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml;
 using animomentapi.Data;
 using animomentapi.Dto.User;
 using animomentapi.Interface;
@@ -55,12 +56,28 @@ namespace animomentapi.Repository
                 await db.QueryAsync<User>(
                     "usp_Add_New_User",
                     parameters,
-                    commandType: CommandType.StoredProcedure 
+                    commandType: CommandType.StoredProcedure
                 );
             }
 
             return result;
         }
-        
+
+        public async Task<User?> EditUserAsync(int id, EditUserDto dto)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserId == id);
+
+            if (user == null) return null;
+
+            user.UserName = dto.UserName.Trim();
+            user.FirstName = dto.FirstName?.Trim();
+            user.LastName = dto.LastName?.Trim();
+            user.Email = dto.Email?.Trim();
+            user.PhoneNumber = dto.PhoneNumber?.Trim();
+
+            await _context.SaveChangesAsync();
+
+            return user;
+        }
     }
 }

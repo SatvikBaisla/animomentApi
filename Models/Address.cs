@@ -12,6 +12,7 @@ namespace animomentapi.Models
         [Key]
         public int AddressId { get; set; }  // Primary key
         public int? UserId { get; set; }
+        public string AddressTitle { get; set; } = string.Empty;
         public string Street { get; set; } = string.Empty;
         public string City { get; set; } = string.Empty;
         public string State { get; set; } = string.Empty;

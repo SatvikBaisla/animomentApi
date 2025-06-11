@@ -19,7 +19,6 @@ namespace animomentapi.controllers
         private readonly IUserRepository _userRepo;
         public UserController(IUserRepository userRepo)
         {
-            
             _userRepo = userRepo;
         }
 
@@ -34,9 +33,19 @@ namespace animomentapi.controllers
         }
 
         [HttpPost("add_new_user")]
-        public async Task<IActionResult> AddNewUserAsync([FromBody] AddUserDto dto)
+        public async Task<IActionResult> AddNewUser([FromBody] AddUserDto dto)
         {
             var result = await _userRepo.AddNewUserAsync(dto);
+
+            if (result == null) return NotFound();
+
+            return Ok(result);
+        }
+
+        [HttpPut("edit_user_by_id/{id}")]
+        public async Task<IActionResult> EditUser([FromRoute] int id, [FromBody] EditUserDto dto)
+        {
+            var result = await _userRepo.EditUserAsync(id, dto);
 
             if (result == null) return NotFound();
 

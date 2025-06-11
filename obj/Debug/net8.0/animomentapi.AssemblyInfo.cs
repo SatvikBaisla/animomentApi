@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("animomentapi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f66e9e48defc3972c8dd7f09920bddecda55435c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ed3bd74baf378be11462d36a3c4b6138edbd3f9")]
 [assembly: System.Reflection.AssemblyProductAttribute("animomentapi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("animomentapi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

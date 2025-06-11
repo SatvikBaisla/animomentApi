@@ -85,18 +85,18 @@ if (app.Environment.IsDevelopment())
 }
 
 // for local
-app.UseCors(Options =>
-Options.WithOrigins("http://localhost:4200")
-.AllowAnyMethod()
-.AllowAnyHeader()
-);
-
-// for live
 // app.UseCors(Options =>
-// Options.WithOrigins("https://wetechguys.com")
+// Options.WithOrigins("http://localhost:4200")
 // .AllowAnyMethod()
 // .AllowAnyHeader()
 // );
+
+// for live
+app.UseCors(Options =>
+Options.WithOrigins("https://wetechguys.com")
+.AllowAnyMethod()
+.AllowAnyHeader()
+);
 
 
 // builder.Services.AddCors(options =>
